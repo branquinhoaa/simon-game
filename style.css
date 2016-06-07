@@ -3,7 +3,7 @@ body{
   display: flex;
   justify-content:center;
   align-items:center;
-  
+
 }
 
 #simon{
@@ -16,21 +16,57 @@ body{
   overflow: hidden;
   z-index:100;
   -webkit-box-align:center;
-    -webkit-box-pack:center;
-    display:-webkit-box;
+  -webkit-box-pack:center;
+  display:-webkit-box;
 }
 
 #judge{
-     width: 200px;
-    height: 200px;
-    border: 8px solid #343436;
-    border-radius: 50%;
-    text-align: center;
-    z-index: 102;
-    position: relative;
-    background-color: white;
+  width: 200px;
+  height: 200px;
+  border: 8px solid #343436;
+  border-radius: 50%;
+  text-align: center;
+  z-index: 102;
+  position: relative;
+  background-color: white;
+}
+label{
+  font-size:13px;
+  position: relative;
+  top: -8px;
 }
 
+.row{
+   position: relative;
+   top: -10px;
+}
+.row label{
+  top:0px;
+}
+
+.offBtn{
+      background: url('https://cdn1.iconfinder.com/data/icons/simgeler-interface/512/Switches-128.png') -182px -27px;
+    width: 55px;
+    height: 23px;
+    position: relative;
+    top: -7px;
+    right: -66px;
+    border: none;
+    border-radius: 10px;
+}
+
+.onBtn{
+  background: url('https://cdn1.iconfinder.com/data/icons/simgeler-interface/512/Switches-128.png') -147px -79px;
+    width: 55px;
+    height: 23px;
+    position: relative;
+    top: -7px;
+    right: -66px;
+    border: none;
+    border-radius: 10px;
+}
+
+   
 h2{
   padding:5px;
   color:#1D1F20;
@@ -38,9 +74,9 @@ h2{
   font-weight:bold;
 }
 
-button{
-  height:20px;
-  width:20px;
+.starter{
+  height:17px;
+  width:15px;
   border-radius:50%;
 }
 
@@ -63,16 +99,18 @@ button{
   font-weight: bold;
   color: white;
   font-family: 'Cutive Mono', monospace;
+  position: relative;
+    top: -8px;
 }
 
 
 #green {
-    background-color: #00A74A;
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 50%;
-    width: 50%;
+  background-color: #00A74A;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 50%;
+  width: 50%;
   border-bottom: 8px solid #343436;
   border-right: 8px solid  #343436;
 }
@@ -80,37 +118,57 @@ button{
 
 #red {
   border-bottom: 8px solid  #343436;
-    background-color: #9F0F17;
-    position: absolute;
-    right: 0;
-    top: 0;
-    height: 50%;
-    width: 50%;
+  background-color: #9F0F17;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 50%;
+  width: 50%;
 }
 
 #yellow {
-    background-color: #CCA707;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 50%;
-    height: 50%;
-   border-right: 8px solid  #343436;
+  background-color: #CCA707;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50%;
+  height: 50%;
+  border-right: 8px solid  #343436;
 }
 
 #blue {
-    position: absolute;
-    background-color: #094A8F;
-    bottom: 0;
-    right: 0;
-    width: 50%;
-    height: 50%;
+  position: absolute;
+  background-color: #094A8F;
+  bottom: 0;
+  right: 0;
+  width: 50%;
+  height: 50%;
 }
 #strictActive{
-    width: 2px;
-    height: 8px;
-    border: 2px solid black;
-    background-color: black;
-    position: relative;
-    right: -15px;
-    top: -13px;}
+  width: 7px;
+  height: 7px;
+  border: 2px solid black;
+  background-color: black;
+  position: relative;
+  right: -117px;
+  top: -5px;  
+}
+.redactive{
+  background-color:#ff0000 !important;
+}
+
+.blueactive{
+  background-color:#0000ff!important;
+}
+
+.greenactive{
+  background-color:#00ff00 !important;
+}
+
+.yellowactive{
+  background-color:#ffff00 !important;
+}
+
+.strictActive{
+  background-color: firebrick !important;
+}

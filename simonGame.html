@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
  <head>
   <meta charset="utf-8">
@@ -10,23 +11,24 @@
   <style>
   </style>
  </head>
- <body>
-  <div class="col-md-10 col-sm-12 col-xs-12" id="simon">
-   <span class="col-md-6 col-sm-6 col-xs-6" id="green"></span>
-   <span class="col-md-6 col-sm-6 col-xs-6" id="red"></span><br>
-   <span class="col-md-6 col-sm-6 col-xs-6" id="yellow"></span>
-   <span class="col-md-6 col-sm-6 col-xs-6" id="blue"></span>
+ <body onload="prevenTouch()">
+  <div class="col-md-10 col-sm-12 col-xs-12" id="simon" >
+   <span class="col-md-6 col-sm-6 col-xs-6 color" id="green"></span>
+   <span class="col-md-6 col-sm-6 col-xs-6 color" id="red"></span><br>
+   <span class="col-md-6 col-sm-6 col-xs-6 color" id="yellow"></span>
+   <span class="col-md-6 col-sm-6 col-xs-6 color" id="blue"></span>
    <div id="judge">
     <h2>SIMON</h2>
     <div id="number"></div>
     <label>count</label><br>
     <div class="row">
-     <button id="start"></button>
+     <button class="starter" id="start"></button>
      <label>start</label>
-     <button id="strict"></button>
+     <button class="starter" id="strict"></button>
      <label>strict</label><br>
-     <button id="strictActive"></button>
+     <div id="strictActive"></div>
     </div>
+    <div class='offBtn'></div>
    </div>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
