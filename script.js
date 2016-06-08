@@ -13,16 +13,20 @@ $(document).ready(function(){
         "blue": 3,
         "yellow": 4   
       };
-  
+
+  function setBtnFun(arg){
+    $('.starter').attr('disabled',arg);
+  }
+
   changeColorDisplay('none');
-  $('.starter').attr('disabled','disabled');
-  
+  setBtnFun('disabled');
+
   $('.starter').on("click", function(){
     typeofGame = $(this).attr('id')
     if (typeofGame=='strict'){
       $("#strictActive").addClass('strictActive');
     }
-    $('.starter').attr('disabled','disabled');
+    setBtnFun('disabled');
     continueGame();
   });  
 
@@ -45,16 +49,16 @@ $(document).ready(function(){
   $('.offBtn').on('click', function(){
     $(".offBtn").toggleClass("onBtn");
     if ($('.offBtn').hasClass('onBtn')){ //se tiver on
-      $('.starter').attr('disabled',false);
+      setBtnFun(false);
     } else{
-       changeColorDisplay('none');
-      $('.starter').attr('disabled','disabled');
+      changeColorDisplay('none');
+      setBtnFun('disabled')
       reset('all');
       $("#number").html(' ');
       $("#strictActive").removeClass('strictActive');
     }
   });
-  
+
   function playAudio (color,number, callback){
     return  new Howl({
       urls: ['https://s3.amazonaws.com/freecodecamp/simonSound'+number+'.mp3'],
