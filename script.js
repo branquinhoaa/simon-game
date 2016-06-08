@@ -14,10 +14,6 @@ $(document).ready(function(){
         "yellow": 4   
       };
 
-  function setBtnFun(arg){
-    $('.starter').attr('disabled',arg);
-  }
-
   changeColorDisplay('none');
   setBtnFun('disabled');
 
@@ -140,4 +136,9 @@ $(document).ready(function(){
   function changeColorDisplay(arg){
     $("span").css("pointer-events", arg);
   }
+
+  function setBtnFun(arg){
+    $('.starter').attr('disabled',arg);
+  }
+
 });
