@@ -1,32 +1,36 @@
 $(document).ready(function(){
   var num=1,
-      aleat,
+      random,
       btnClicked,
       typeofGame,
       allColors=['green','red','blue','yellow'],
       rightSequence=[],
       personSequence=[],
       order=0,
+      timeWait=800,
+      timeRestart=2000,
+      numColors=4,
+      maxRounds=20,
       storeColInf ={
-        "red": 1,
-        "green": 2,
-        "blue": 3,
-        "yellow": 4   
+        'red': 1,
+        'green': 2,
+        'blue': 3,
+        'yellow': 4   
       };
 
   changeColorDisplay('none');
   setBtnFun('disabled');
 
-  $('.starter').on("click", function(){
+  $('.starter').on('click', function(){
     typeofGame = $(this).attr('id')
     if (typeofGame=='strict'){
-      $("#strictActive").addClass('strictActive');
+      $('#strictActive').addClass('strictActive');
     }
     setBtnFun('disabled');
     continueGame();
   });  
 
-  $(".color").on("click", function(){
+  $('.color').on('click', function(){
     var idClicked = $(this).attr('id');
     order++;
     lightSound(''+idClicked+'');
@@ -34,24 +38,24 @@ $(document).ready(function(){
     verify(''+idClicked+'');  
   });
 
-  $("#number").on("errou", function(event, callback){
-    $("#number").html("--");
+  $('#number').on('error', function(event, callback){
+    $('#number').html('--');
     setTimeout(function(){
       callback();
-      $("#number").html(num);
+      $('#number').html(num);
     },1500);
   });
 
   $('.offBtn').on('click', function(){
-    $(".offBtn").toggleClass("onBtn");
+    $('.offBtn').toggleClass('onBtn');
     if ($('.offBtn').hasClass('onBtn')){ //se tiver on
       setBtnFun(false);
     } else{
       changeColorDisplay('none');
       setBtnFun('disabled')
       reset('all');
-      $("#number").html(' ');
-      $("#strictActive").removeClass('strictActive');
+      $('#number').html(' ');
+      $('#strictActive').removeClass('strictActive');
     }
   });
 
@@ -60,7 +64,7 @@ $(document).ready(function(){
       urls: ['https://s3.amazonaws.com/freecodecamp/simonSound'+number+'.mp3'],
       volume: 0.5,
       onend: function() {
-        $("#"+color).removeClass(""+color+'active');
+        $('#'+color).removeClass(''+color+'active');
         if (callback){
           callback();
         }
@@ -69,20 +73,20 @@ $(document).ready(function(){
   }
 
   function continueGame(){
-    aleat=Math.floor((Math.random() * 4));
-    rightSequence.push(allColors[aleat]);
+    random=Math.floor((Math.random() * numColors));
+    rightSequence.push(allColors[random]);
     changeColorDisplay('none');
-    doit();
+    doIt();
   }
 
-  function doit(){
-    $("#number").html(num);
-    var counter=0; //define um contador para cada chamada;
+  function doIt(){
+    $('#number').html(num);
+    var counter=0; 
     for (var i in rightSequence){
       var color=rightSequence[i];
-      timing(lightSound, 800 * ++counter, color);
+      timing(lightSound, timeWait * ++counter, color);
     }
-    timing(changeColorDisplay, 800*counter+1, 'auto');
+    timing(changeColorDisplay, timeWait*counter+1, 'auto');
   }
 
   function timing(callback, time, arg){
@@ -92,30 +96,30 @@ $(document).ready(function(){
   }
 
   function lightSound(cor, callback){
-    $("#"+cor).addClass(""+cor+'active');
+    $('#'+cor).addClass(''+cor+'active');
     playAudio(cor, storeColInf[cor], callback).play(); 
   }
 
   function verify(cor){
     if (rightSequence[order-1]!==cor){
       changeColorDisplay('none');
-      if(typeofGame=="strict"){  //restart        
-        $("#number").html('loser');
+      if(typeofGame=='strict'){  //restart        
+        $('#number').html('loser');
         setTimeout(function(){
           reset('all');
           continueGame();
-        },2000);
+        },timeRestart);
         return;
       } else{  //repeat sequence
         reset();
-        $("#number").trigger("errou",[doit]);
+        $('#number').trigger('error',[doIt]);
         return;
       }
     }
     if (rightSequence.length==personSequence.length){
-      if(rightSequence.length>=20){
-        $("#number").html('winner!');
-        $("#"+typeofGame).attr('disabled', false);
+      if(rightSequence.length>=maxRounds){
+        $('#number').html('winner!');
+        $('#'+typeofGame).attr('disabled', false);
       } else {
         num++;
         reset();
@@ -134,7 +138,7 @@ $(document).ready(function(){
   }
 
   function changeColorDisplay(arg){
-    $("span").css("pointer-events", arg);
+    $('span').css('pointer-events', arg);
   }
 
   function setBtnFun(arg){
