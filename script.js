@@ -3,11 +3,11 @@ $(document).ready(function(){
 	ui.turnOnOff();  
 });
 
-function Game(typeofGame){
-	this.typeofGame = typeofGame;
+function Game(typeOfGame){
+	this.typeOfGame = typeOfGame;
 	this.rightSequence=[];
 	this.personSequence=[];    
-	this.allColors = ['green','red','blue','yellow'];     
+	this.allColors = ['green','red','blue','yellow']; 
 	this.order=0;
 }
 
@@ -99,8 +99,8 @@ UI.prototype.playAudio =function(color,number, callback){
 	});  
 }
 
-UI.prototype.changeColorDisplay=function(arg){ 
-	$('span').css('pointer-events', arg);
+UI.prototype.changeColorDisplay=function(permission){ 
+	$('span').css('pointer-events', permission);
 }
 
 UI.prototype.verify = function (cor){     
@@ -108,7 +108,7 @@ UI.prototype.verify = function (cor){
 	var self=this;
 	if (!this.game.isRight(cor)){  
 		this.changeColorDisplay('none');
-		if(this.game.typeofGame=='strict'){    
+		if(this.game.typeOfGame=='strict'){    
 			$('#number').html('loser');
 			setTimeout(function(){
 				self.game.reset('all');
@@ -125,7 +125,7 @@ UI.prototype.verify = function (cor){
 	if (this.game.rightSequence.length==this.game.personSequence.length){
 		if(this.game.rightSequence.length>=this.maxRounds){
 			$('#number').html('winner!');
-			$('#'+this.game.typeofGame).attr('disabled', false);
+			$('#'+this.game.typeOfGame).attr('disabled', false);
 		} else {
 			this.num++;
 			this.game.reset();
@@ -153,11 +153,11 @@ UI.prototype.bindGameEvents=function (){
 	});
 	$('.starter').on('click', function(){
 		self.setBtnFun('disabled');
-		var typeofGame = $(this).attr('id')
-		if (typeofGame=='strict'){
+		var typeOfGame = $(this).attr('id')
+		if (typeOfGame=='strict'){
 			$('#strictActive').addClass('active');
 		}
-		self.game= new Game (typeofGame);
+		self.game= new Game (typeOfGame);
 		self.proceedGame();
 	}); 
 }
