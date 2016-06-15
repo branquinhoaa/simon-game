@@ -78,7 +78,7 @@ label{
   border-bottom: $simon-border;
   border-right: $simon-border;
   &.active{
-    background-color: #00ff00 !important;
+    background-color: #00ff00;
   }
 }
 
@@ -89,7 +89,7 @@ label{
   right: 0;
   top: 0;
   &.active{
-    background-color: #ff0000 !important;
+    background-color: #ff0000;
   }
 }
 
@@ -100,7 +100,7 @@ label{
   left: 0;
   border-right: $simon-border;
   &.active{
-    background-color: #ffff00 !important;
+    background-color: #ffff00;
   }
 }
 
@@ -110,7 +110,7 @@ label{
   bottom: 0;
   right: 0;
   &.active{
-    background-color: #0000ff !important;
+    background-color: #0000ff;
   }
 }
 
